@@ -1,0 +1,20 @@
+{
+    "usuarios": [
+      {
+        "nome": "Fulano de Tal",
+        "email": "fulano@teste.com",
+        "senha": "senha123"
+      },
+      {
+        "nome": "Beltrano da Silva",
+        "email": "beltrano@teste.com",
+        "senha": "senha456"
+      },
+      {
+        "nome": "Ciclana dos Santos",
+        "email": "ciclana@teste.com",
+        "senha": "senha789"
+      }
+    ]
+  }
+  

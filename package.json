@@ -1,6 +1,13 @@
 {
   "dependencies": {
+    "chai": "^4.3.7",
+    "cypress": "^12.7.0",
+    "cypress-file-upload": "^5.0.8",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.7.0"
+    "mocha": "^10.2.0"
   }
 }
