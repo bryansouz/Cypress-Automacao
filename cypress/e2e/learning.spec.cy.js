@@ -15,7 +15,7 @@ const userData = require('./users.json');
 
 
 
-describe.skip('Hooks e Faker', () => {
+describe('Hooks e Faker', () => {
   beforeEach('Use o hook beforeEach para executar uma ação comum em todos os testes, como fazer login no aplicativo da web', ()=>{
     cy.visit('/minha-conta/')
     cy.get('#username').type(Cypress.env('username'))
@@ -46,7 +46,7 @@ describe.skip('Hooks e Faker', () => {
 
   })
 
-describe.skip('Listas e variáveis', () => {
+describe('Listas e variáveis', () => {
 
   it('Use variáveis do Cypress para armazenar dados comuns em diferentes testes, como credenciais de login ou URLs de página da web', () => {
     
@@ -83,7 +83,7 @@ describe.skip('Listas e variáveis', () => {
     });
   });
     
-describe.skip('Arquivo de Dados', () => {
+describe('Arquivo de Dados', () => {
   it('Crie um arquivo de dados em formato JSON para armazenar dados comuns usados em diferentes testes, como nomes de usuário e senhas', () => {
       for(var i = 0; i < userData.usuarios.length; i++){
         meuModulo.login(userData.usuarios[i].email, userData.usuarios[i].senha)
@@ -97,7 +97,7 @@ describe.skip('Arquivo de Dados', () => {
     
   });
 
-describe.skip('Comandos Customizados', () => {
+describe('Comandos Customizados', () => {
   it('Crie um comando customizado no arquivo commands.js do Cypress para realizar uma ação comum em vários testes, como fazer login no aplicativo', () => {
     cy.login('bryan', '123')
   });
@@ -108,7 +108,7 @@ describe.skip('Comandos Customizados', () => {
 
 describe('Page Objects Model', () => {
  
-    it.skip('Crie uma classe de Page Object para representar uma página específica do aplicativo da web, encapsulando seus elementos e comportamentos', () => {
+    it('Crie uma classe de Page Object para representar uma página específica do aplicativo da web, encapsulando seus elementos e comportamentos', () => {
       const loginPage = new LoginPage();
       loginPage.login('teste1','*****')
     });

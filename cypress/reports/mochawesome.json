@@ -1,0 +1,375 @@
+{
+    "stats": {
+      "suites": 5,
+      "tests": 11,
+      "passes": 11,
+      "pending": 0,
+      "failures": 0,
+      "start": "2023-03-16T23:46:38.733Z",
+      "end": "2023-03-16T23:48:02.984Z",
+      "duration": 84251,
+      "testsRegistered": 11,
+      "passPercent": 100,
+      "pendingPercent": 0,
+      "other": 0,
+      "hasOther": false,
+      "skipped": 0,
+      "hasSkipped": false
+    },
+    "results": [
+      {
+        "uuid": "aad845de-79ea-4efa-b3cd-27126db18a7b",
+        "title": "",
+        "fullFile": "cypress\\e2e\\learning.spec.cy.js",
+        "file": "cypress\\e2e\\learning.spec.cy.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "caecb9e7-6011-44cf-b7c8-45d50b90cc2d",
+            "title": "Hooks e Faker",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "Use a biblioteca Faker para gerar dados aleatórios para preencher formulários de teste, como endereços de e-mail e senhas",
+                "fullTitle": "Hooks e Faker Use a biblioteca Faker para gerar dados aleatórios para preencher formulários de teste, como endereços de e-mail e senhas",
+                "timedOut": null,
+                "duration": 14478,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "// logout\ncy.get('.topbar-inner > :nth-child(1) > .list-inline > :nth-child(2) > a').click();\ncy.get('.icon-user-unfollow').click();\ncy.visit('/minha-conta/');\ncy.get('#reg_email').type(_faker.faker.internet.email());\ncy.get('#reg_password').type(_faker.faker.internet.password());\ncy.get(':nth-child(4) > .button').click();",
+                "err": {},
+                "uuid": "ef65f1a5-a49b-48bd-bf1f-e015d0e2c523",
+                "parentUUID": "caecb9e7-6011-44cf-b7c8-45d50b90cc2d",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Escreva testes que usem dados aleatórios gerados pelo Faker para validar a entrada do usuário em diferentes formulários",
+                "fullTitle": "Hooks e Faker Escreva testes que usem dados aleatórios gerados pelo Faker para validar a entrada do usuário em diferentes formulários",
+                "timedOut": null,
+                "duration": 8404,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "// logout\ncy.get('.topbar-inner > :nth-child(1) > .list-inline > :nth-child(2) > a').click();\ncy.get('.icon-user-unfollow').click();\ncy.get('#username').type(_faker.faker.internet.email());\ncy.get('#password').type(_faker.faker.internet.password());\ncy.get('.woocommerce-form > .button').click();",
+                "err": {},
+                "uuid": "8158a5be-a34e-45fc-a91e-2af5708f7548",
+                "parentUUID": "caecb9e7-6011-44cf-b7c8-45d50b90cc2d",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "ef65f1a5-a49b-48bd-bf1f-e015d0e2c523",
+              "8158a5be-a34e-45fc-a91e-2af5708f7548"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 22882,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "c7cddddd-adf1-439b-a68f-a03dcbf71d25",
+            "title": "Listas e variáveis",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "Use variáveis do Cypress para armazenar dados comuns em diferentes testes, como credenciais de login ou URLs de página da web",
+                "fullTitle": "Listas e variáveis Use variáveis do Cypress para armazenar dados comuns em diferentes testes, como credenciais de login ou URLs de página da web",
+                "timedOut": null,
+                "duration": 6967,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "const usuarios = [{\n  usuario: 'user1',\n  senha: 'senha1'\n}, {\n  usuario: 'user2',\n  senha: 'senha2'\n}, {\n  usuario: 'user3',\n  senha: 'senha3'\n}];\ncy.visit('/minha-conta/');\nusuarios.forEach(perfil => {\n  cy.get('#username').clear();\n  cy.get('#username').type(perfil.usuario);\n  cy.get('#password').clear();\n  cy.get('#password').type(perfil.senha);\n  cy.get('.woocommerce-form > .button').click();\n});",
+                "err": {},
+                "uuid": "988794cb-5674-4e80-949b-dd830f6c1ca0",
+                "parentUUID": "c7cddddd-adf1-439b-a68f-a03dcbf71d25",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Use loops e comandos Cypress para iterar sobre uma lista de elementos na página da web e validar sua presença ou conteúdo",
+                "fullTitle": "Listas e variáveis Use loops e comandos Cypress para iterar sobre uma lista de elementos na página da web e validar sua presença ou conteúdo",
+                "timedOut": null,
+                "duration": 1139,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.visit('/');\ncy.get('.widget-inner').each($s1 => {\n  cy.wrap($s1).invoke('text').then(text => {\n    expect(text).to.contain('Ingrid Running Jacket');\n  });\n});",
+                "err": {},
+                "uuid": "14cf260f-0059-42d4-866d-25b944012fad",
+                "parentUUID": "c7cddddd-adf1-439b-a68f-a03dcbf71d25",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Escreva testes que usem dados de um arquivo de dados para validar o comportamento do aplicativo em diferentes cenários ",
+                "fullTitle": "Listas e variáveis Escreva testes que usem dados de um arquivo de dados para validar o comportamento do aplicativo em diferentes cenários ",
+                "timedOut": null,
+                "duration": 27082,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "userData.usuarios.forEach(user => {\n  meuModulo.registrar(user.email, user.senha);\n  meuModulo.login(user.email, user.senha);\n});",
+                "err": {},
+                "uuid": "794bae1c-070a-4dd7-99e4-edc8aca56afb",
+                "parentUUID": "c7cddddd-adf1-439b-a68f-a03dcbf71d25",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "988794cb-5674-4e80-949b-dd830f6c1ca0",
+              "14cf260f-0059-42d4-866d-25b944012fad",
+              "794bae1c-070a-4dd7-99e4-edc8aca56afb"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 35188,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "135e02e8-083b-45ea-91a6-b19a74c5b46d",
+            "title": "Arquivo de Dados",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "Crie um arquivo de dados em formato JSON para armazenar dados comuns usados em diferentes testes, como nomes de usuário e senhas",
+                "fullTitle": "Arquivo de Dados Crie um arquivo de dados em formato JSON para armazenar dados comuns usados em diferentes testes, como nomes de usuário e senhas",
+                "timedOut": null,
+                "duration": 17941,
+                "state": "passed",
+                "speed": "slow",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "for (var i = 0; i < userData.usuarios.length; i++) {\n  meuModulo.login(userData.usuarios[i].email, userData.usuarios[i].senha);\n}",
+                "err": {},
+                "uuid": "f3c7bddd-bd73-4a18-a79e-4135eb47658a",
+                "parentUUID": "135e02e8-083b-45ea-91a6-b19a74c5b46d",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Use o comando Cypress.readFile para ler dados de um arquivo de dados durante a execução do teste",
+                "fullTitle": "Arquivo de Dados Use o comando Cypress.readFile para ler dados de um arquivo de dados durante a execução do teste",
+                "timedOut": null,
+                "duration": 98,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.readFile('cypress/e2e/users.json').its('usuarios[0]').its('nome').should('eq', 'Fulano de Tal');",
+                "err": {},
+                "uuid": "010d6234-94ab-4a4e-a894-4177dc4619d9",
+                "parentUUID": "135e02e8-083b-45ea-91a6-b19a74c5b46d",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "f3c7bddd-bd73-4a18-a79e-4135eb47658a",
+              "010d6234-94ab-4a4e-a894-4177dc4619d9"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 18039,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "a76e9424-729e-4dce-8142-8270a0af0c9e",
+            "title": "Comandos Customizados",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "Crie um comando customizado no arquivo commands.js do Cypress para realizar uma ação comum em vários testes, como fazer login no aplicativo",
+                "fullTitle": "Comandos Customizados Crie um comando customizado no arquivo commands.js do Cypress para realizar uma ação comum em vários testes, como fazer login no aplicativo",
+                "timedOut": null,
+                "duration": 3254,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.login('bryan', '123');",
+                "err": {},
+                "uuid": "fe8f8e5e-ca3c-4ff2-86f9-6aea7abce66e",
+                "parentUUID": "a76e9424-729e-4dce-8142-8270a0af0c9e",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Use o comando customizado em vários testes para reduzir a duplicação de código e tornar o código mais legível",
+                "fullTitle": "Comandos Customizados Use o comando customizado em vários testes para reduzir a duplicação de código e tornar o código mais legível",
+                "timedOut": null,
+                "duration": 96,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.dismiss();",
+                "err": {},
+                "uuid": "e7e67def-aca6-4d93-a142-5e4630c9fd70",
+                "parentUUID": "a76e9424-729e-4dce-8142-8270a0af0c9e",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "fe8f8e5e-ca3c-4ff2-86f9-6aea7abce66e",
+              "e7e67def-aca6-4d93-a142-5e4630c9fd70"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 3350,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "908a7f61-fc03-42f2-ab99-27c6d0728889",
+            "title": "Page Objects Model",
+            "fullFile": "",
+            "file": "",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "Crie uma classe de Page Object para representar uma página específica do aplicativo da web, encapsulando seus elementos e comportamentos",
+                "fullTitle": "Page Objects Model Crie uma classe de Page Object para representar uma página específica do aplicativo da web, encapsulando seus elementos e comportamentos",
+                "timedOut": null,
+                "duration": 3405,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "const loginPage = new _e2e.default();\nloginPage.login('teste1', '*****');",
+                "err": {},
+                "uuid": "0afe002a-d51a-422f-a605-291a64a05317",
+                "parentUUID": "908a7f61-fc03-42f2-ab99-27c6d0728889",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "Use loops e comandos Cypress para iterar sobre a lista e inserir seus dados em diferentes partes do aplicativo da web, como formulários e tabelas",
+                "fullTitle": "Page Objects Model Use loops e comandos Cypress para iterar sobre a lista e inserir seus dados em diferentes partes do aplicativo da web, como formulários e tabelas",
+                "timedOut": null,
+                "duration": 1122,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "context": null,
+                "code": "cy.visit('/');",
+                "err": {},
+                "uuid": "1f356073-dcb1-471b-a9c1-c951357ec4a8",
+                "parentUUID": "908a7f61-fc03-42f2-ab99-27c6d0728889",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "0afe002a-d51a-422f-a605-291a64a05317",
+              "1f356073-dcb1-471b-a9c1-c951357ec4a8"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 4527,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": true,
+        "rootEmpty": true,
+        "_timeout": 2000
+      }
+    ],
+    "meta": {
+      "mocha": {
+        "version": "7.0.1"
+      },
+      "mochawesome": {
+        "options": {
+          "quiet": false,
+          "reportFilename": "mochawesome",
+          "saveHtml": false,
+          "saveJson": true,
+          "consoleReporter": "spec",
+          "useInlineDiffs": false,
+          "code": true
+        },
+        "version": "7.1.3"
+      },
+      "marge": {
+        "options": {
+          "reportDir": "cypress/reports",
+          "overwrite": false,
+          "html": false,
+          "json": true
+        },
+        "version": "6.2.0"
+      }
+    }
+  }
