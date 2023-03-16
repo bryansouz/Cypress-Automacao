@@ -13,9 +13,6 @@ const expect = chai.expect;
 const meuModulo = require('./login'); 
 const userData = require('./users.json'); 
 
-var mocha = new Mocha({
-  reporter: 'mochawesome',
-});cd ../
 
 
 describe.skip('Hooks e Faker', () => {
@@ -47,7 +44,7 @@ describe.skip('Hooks e Faker', () => {
     cy.get('.woocommerce-form > .button').click()
   })
 
-})
+  })
 
 describe.skip('Listas e variáveis', () => {
 
@@ -107,7 +104,7 @@ describe.skip('Comandos Customizados', () => {
   it('Use o comando customizado em vários testes para reduzir a duplicação de código e tornar o código mais legível', () => {
     cy.dismiss();
   });
-})
+  })
 
 describe('Page Objects Model', () => {
  
@@ -121,4 +118,4 @@ describe('Page Objects Model', () => {
     })
       
 
-});
+  });
