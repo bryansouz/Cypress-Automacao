@@ -1,15 +1,22 @@
 import { faker } from '@faker-js/faker';
 import { mocha } from "mocha";
+import LoginPage from '../support/e2e.js';
+
 const arv = require('../data.json');
 const p = require('../fixtures/perfil.json')
-const fs = require('fs');
 const user2 = JSON.stringify(arv);
 const user = JSON.parse(user2);
 
+
 const chai = require('chai');
 const expect = chai.expect;
-const meuModulo = require('./login'); // importa o módulo que contém a lógica de login
-const userData = require('./users.json'); // importa o arquivo JSON que contém os dados dos usuários
+const meuModulo = require('./login'); 
+const userData = require('./users.json'); 
+
+var mocha = new Mocha({
+  reporter: 'mochawesome',
+});cd ../
+
 
 describe.skip('Hooks e Faker', () => {
   beforeEach('Use o hook beforeEach para executar uma ação comum em todos os testes, como fazer login no aplicativo da web', ()=>{
@@ -42,7 +49,7 @@ describe.skip('Hooks e Faker', () => {
 
 })
 
-describe.skip('Listas e variáveis:', () => {
+describe.skip('Listas e variáveis', () => {
 
   it('Use variáveis do Cypress para armazenar dados comuns em diferentes testes, como credenciais de login ou URLs de página da web', () => {
     
@@ -79,63 +86,39 @@ describe.skip('Listas e variáveis:', () => {
     });
   });
     
-describe('Arquivo de Dados:', () => {
+describe.skip('Arquivo de Dados', () => {
   it('Crie um arquivo de dados em formato JSON para armazenar dados comuns usados em diferentes testes, como nomes de usuário e senhas', () => {
       for(var i = 0; i < userData.usuarios.length; i++){
         meuModulo.login(userData.usuarios[i].email, userData.usuarios[i].senha)
       }
   });
 
-  it.only('Use o comando Cypress.readFile para ler dados de um arquivo de dados durante a execução do teste', () => {
-    //erro no file, nao ta reconhecendo
-    
-    Cypress.readFile('./users.json').then(userReadfile =>
-      userReadfile.forEach(userReadfile =>{
-        meuModulo.registrar(userReadfile.nome,userReadfile.senha)
-      })
-  )});
-});
-
-
-  it.skip('', () => {
-    
-
-    cy.get('.widget-inner').each(($s1) => {
-      expect($s1).to.contain('Josie Yoga Jacket')
-    })
+  it('Use o comando Cypress.readFile para ler dados de um arquivo de dados durante a execução do teste', () => {
+    cy.readFile('cypress/e2e/users.json').its('usuarios[0]').its('nome').should('eq', 'Fulano de Tal')
   
-
+    });
     
-    cy.visit('/minha-conta/')
-    cy.get('#reg_email').type(Cypress.env('username'))
-    cy.get('#reg_password').type(Cypress.env('password'))
-    cy.get(':nth-child(4) > .button').click()
   });
 
-  //Arquivo de Dados
-  it.skip('Crie um arquivo de dados em formato JSON para armazenar dados comuns usados em diferentes testes, como nomes de usuário e senhas', () => {
-    cy.visit('/minha-conta/')
-    user.usuarios.forEach(p => {
-      cy.get('#username').clear()
-      cy.get('#username').type(p.nome)
-      cy.get('#password').clear()
-      cy.get('#password').type(p.senha)
-      cy.get('.woocommerce-form > .button').click()
+describe.skip('Comandos Customizados', () => {
+  it('Crie um comando customizado no arquivo commands.js do Cypress para realizar uma ação comum em vários testes, como fazer login no aplicativo', () => {
+    cy.login('bryan', '123')
+  });
+  it('Use o comando customizado em vários testes para reduzir a duplicação de código e tornar o código mais legível', () => {
+    cy.dismiss();
+  });
+})
 
+describe('Page Objects Model', () => {
+ 
+    it.skip('Crie uma classe de Page Object para representar uma página específica do aplicativo da web, encapsulando seus elementos e comportamentos', () => {
+      const loginPage = new LoginPage();
+      loginPage.login('teste1','*****')
     });
-    });
+    it('Use loops e comandos Cypress para iterar sobre a lista e inserir seus dados em diferentes partes do aplicativo da web, como formulários e tabelas', () => {
+      cy.visit('/');
+      
+    })
+      
 
-
-
-  it.skip('validar usuários não cadastrados', () => {
-    cy.visit('/minha-conta/')
-    cy.get('#username').type(faker.internet.email())
-    cy.get('#password').type(faker.internet.password())
-    cy.get('.woocommerce-form > .button').click()
-  });
-
-  it.skip('validar listas de usuários', () => {
-
-    c
-  });
-
+});

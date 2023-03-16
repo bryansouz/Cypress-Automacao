@@ -21,4 +21,22 @@ import './commands'
 
 
 // utils.js
+export default class LoginPage {
+    login(email, password) {
+        cy.visit('/minha-conta/')
+        cy.get('#username').type(email)
+        cy.get('#password').type(password)
+        cy.get('.woocommerce-form > .button').click()
+        cy.get('.topbar-inner > :nth-child(1) > .list-inline > :nth-child(2) > a').click()
+        }
+    register(email, password){
+        cy.visit('/minha-conta/')
+        cy.get('#reg_email').type(email)
+        cy.get('#reg_password').type(password)
+        cy.get(':nth-child(4) > .button').click()
+        cy.get('.topbar-inner > :nth-child(1) > .list-inline > :nth-child(2) > a').click()
+        }
     
+
+    }
+  

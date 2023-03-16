@@ -15,6 +15,22 @@
         "email": "jose.ferreira@example.com",
         "senha": "minhasenha"
       }
-    ]
+    ],
+    
+    "items": [
+        {
+          "title": "Item 1",
+          "description": "Descrição do Item 1"
+        },
+        {
+          "title": "Item 2",
+          "description": "Descrição do Item 2"
+        },
+        {
+          "title": "Item 3",
+          "description": "Descrição do Item 3"
+        }
+      ]  
   }
+  
   
