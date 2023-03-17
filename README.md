@@ -1,5 +1,3 @@
-# test-e2e
-
 # Automação de UI com Cypress
 
 ## Hooks e Faker:
